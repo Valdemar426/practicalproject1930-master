@@ -1,0 +1,24 @@
+{% extends 'practicalapp\base.html' %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'kyrylo.css' %}">
+{% endblock %}
+
+{% block content %}
+    <table rules = "all">
+        <tr class="first_line">
+            <td><strong>Номер</strong></td>
+            <td><strong>Назва</strong></td>
+            <td><strong>Рейтинг</strong></td>
+            <td><strong>Зміни</strong></td>
+        </tr>
+        {% for ratings_language_list in ratings_language %}
+            <tr>
+                <td>{{ ratings_language_list.pk }}</td>
+                <td>{{ ratings_language_list.name }}</td>
+                <td>{{ ratings_language_list.ratings }}</td>
+                <td>{{ ratings_language_list.change }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
